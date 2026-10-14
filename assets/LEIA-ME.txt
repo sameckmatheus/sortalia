@@ -1,0 +1,74 @@
+SORTALIA | SORTEADOR CORPORATIVO
+===============================================
+
+INÍCIO RÁPIDO
+-------------
+1. Abra "Sortalia.html" no Chrome ou Microsoft Edge atualizado.
+2. A tela já abre com os dados do arquivo Excel fornecido:
+   24 participantes, 5 tipos de prêmio, 13 unidades e 5 fotografias.
+3. ATENÇÃO: o modelo Excel declara que os participantes e prêmios são
+   FICTÍCIOS, destinados somente a demonstração. Por isso o sistema e
+   o comprovante sinalizam "BASE DE DEMONSTRAÇÃO".
+4. Para utilizar dados reais, altere o XLSX ou crie outra planilha com
+   as abas Participantes e Prêmios e clique "Importar modelo completo (.xlsx)".
+5. O modelo completo substitui a base atual, inclusive os resultados;
+   faça backup antes de importar novamente, se necessário.
+
+ARQUIVO XLSX COMPLETO
+--------------------
+- Aba "Participantes": A1 = Nome; uma pessoa por linha em A2, A3...
+- Aba "Prêmios": A1 = Prêmio; B1 = Quantidade; C1 = Foto.
+- Coluna B: inteiro positivo, vazio significa 1.
+- Fotos: inserir por Excel > Inserir > Imagens > Colocar sobre as células,
+  ancoradas na coluna C, na linha correspondente ao prêmio.
+- As abas devem ser chamadas exatamente "Participantes" e "Prêmios".
+- Duplicatas por nome ignoram caixa, espaços e acentos.
+- Sem vencedores repetidos, unidades totais não podem superar o
+  número de participantes únicos no modelo completo.
+- Também é possível importar participantes ou prêmios separadamente
+  em XLSX, CSV, TSV ou TXT, bem como cadastrar individualmente.
+
+SORTEIO
+-------
+- Escolha um prêmio, clique em COMEÇAR SORTEIO.
+- Contagem regressiva central e seleção breve sem mostrar os nomes
+  concorrentes durante o processo.
+- Seleção por CSPRNG do navegador, com amostragem sem viés de módulo.
+- Por padrão uma pessoa só ganha uma vez em todo o evento; não pode
+  ganhar duas unidades do mesmo prêmio, mesmo com repetição ativada.
+- Histórico registra data, hora, vencedor, prêmio, quantidade e IDs
+  elegíveis, índice sorteado, SHA-256 dos elegíveis e hash encadeado.
+- A aba de regras permite ajustar tempo e identificação da edição.
+
+COMPROVANTE EM PDF
+------------------
+- Disponível após o primeiro resultado, pelo botão COMPROVANTE PDF,
+  pelo histórico ou pela tela do vencedor.
+- Se ainda faltarem unidades, documento indica SORTEIO EM ANDAMENTO.
+- Quando todas as unidades forem sorteadas, indica SORTEIO FINALIZADO.
+- PDF A4 de múltiplas páginas com resultados, metadados, método de
+  sorteio e resumos SHA-256 para rastreabilidade.
+- Na exportação, a aplicação recalcula hashes, lista dos elegíveis,
+  vencedor por índice e sequência para verificar a consistência local.
+- O PDF é gerado localmente, sem servidor nem biblioteca externa.
+
+SEGURANÇA E LIMITAÇÕES
+----------------------
+- A validação é de consistência LOCAL, não comprova que o operador
+  não modificou dados ou código nem constitui auditoria independente.
+- O PDF não contém assinatura digital ou carimbo de tempo certificado.
+- Para sorteios com exigência legal de auditoria, recomenda-se backend,
+  log externo imutável, assinatura digital, identificação e fiscalização.
+- Faça BACKUP DA BASE para salvar fotos, participantes, prêmios e
+  histórico em JSON. O armazenamento do navegador pode ser perdido.
+- Use uma única aba e um único dispositivo para conduzir o sorteio.
+
+ARQUIVOS DO PACOTE
+------------------
+Sortalia.html: aplicativo completo em um único HTML offline.
+Modelo_Sortalia_Preenchido.xlsx: modelo de preenchimento recebido.
+Exemplo_Comprovante_Sortalia.pdf: exemplo FICTÍCIO, sem validade.
+Sortalia_Preview.png: visão geral do sorteador.
+Sortalia_Vencedor.png: tela da revelação.
+
+Versão: 1.0 | Sortalia

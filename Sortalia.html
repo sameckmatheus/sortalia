@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0056de">
+<meta name="description" content="Sortalia: sorteio corporativo, Excel com fotos e comprovante de validação em PDF.">
+<title>Sortalia | Sorteador Corporativo</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="ambient a1" aria-hidden="true"></div><div class="ambient a2" aria-hidden="true"></div>
+<div class="app-shell">
+<header class="topbar">
+ <div class="brand"><div class="brand-icon" aria-hidden="true"><span>S</span><b>✦</b></div><div class="brand-text"><strong>SORTALIA<span>.</span></strong><small>SORTEIOS COM TRANSPARÊNCIA</small></div></div>
+ <div class="top-mid"><span class="status-dot"></span><span>SORTEIO INTERATIVO</span><span class="top-mid-sep">/</span><span class="muted">EDIÇÃO CORPORATIVA</span></div>
+ <div class="header-actions">
+  <button type="button" class="icon-action" id="soundBtn" aria-label="Ativar som" title="Ativar ou desativar efeitos sonoros"><span id="soundIco">♪</span></button>
+  <button type="button" class="action-mini new-draw-btn" id="newDrawBtn"><span class="tiny-icon">✦</span> Novo sorteio</button>
+  <button type="button" class="action-mini" id="importHistoryBtn"><span class="tiny-icon">⇩</span> Importar histórico</button>
+  <button type="button" class="action-mini" id="rulesBtn"><span class="tiny-icon">⚙</span> Regras</button>
+  <button type="button" class="action-mini presentation-btn" id="fullscreenBtn"><span class="tiny-icon">▣</span> Modo telão</button>
+ </div>
+</header>
+
+<section class="intro-line"><div class="intro-copy"><span class="eyebrow"><i></i> O MOMENTO É AGORA</span><h1>Grandes momentos. <em>Grandes vencedores.</em></h1></div><button type="button" class="model-import-cta" id="importModelBtn"><span class="model-import-icon">⇧</span><span><strong>Importar modelo completo (.xlsx)</strong><small>PARTICIPANTES + PRÊMIOS + FOTOS</small></span><span class="cta-arrow">↗</span></button></section>
+
+<main class="dashboard">
+ <aside class="sidebar left-panel" aria-label="Participantes">
+  <div class="panel-heading"><div class="panel-title"><div class="square-icon blue-ic">♙</div><div><p>BASE DE DADOS</p><h2>Participantes</h2></div></div><span class="panel-count" id="participantsCount">00</span></div>
+  <div class="panel-lead">Quem vai fazer parte deste grande momento?</div>
+  <button type="button" class="primary-add" id="addParticipantBtn"><span class="plus-disc">+</span><span>Adicionar participante</span><span aria-hidden="true">↗</span></button>
+  <button type="button" class="soft-action" id="importParticipantsBtn"><span class="upload-symbol">⇧</span><span>Importar participantes</span><small>XLSX · CSV · TXT</small></button>
+  <div class="list-topline"><span>INSCRITOS</span><button type="button" id="manageParticipantsBtn" class="text-link">Gerenciar →</button></div>
+  <div class="participant-list" id="participantList"><div class="empty-mini">Sua lista aparece aqui.</div></div>
+  <div class="panel-bottom"><span class="mini-orb">✓</span><span id="eligibleFooter">0 participantes aptos</span></div>
+ </aside>
+
+ <section class="stage-wrap" aria-label="Palco do sorteio">
+  <div class="stage" id="mainStage">
+   <div class="stage-grid" aria-hidden="true"></div><div class="stage-light" aria-hidden="true"></div><div class="stage-orbit orbit-one" aria-hidden="true"></div><div class="stage-orbit orbit-two" aria-hidden="true"></div>
+   <div class="stage-upper"><span class="stage-indicator"><span class="live-dot"></span> EXPERIÊNCIA AO VIVO</span><span class="stage-edition">01 <span>—</span> EDIÇÃO ESPECIAL</span></div>
+   <div class="stage-center" id="stageCenter">
+    <div class="stage-top-label"><span class="tiny-star">✦</span> PRÊMIO EM DESTAQUE <span class="tiny-star">✦</span></div>
+    <div class="prize-spotlight" id="spotlight"><div class="spotlight-placeholder" aria-hidden="true"><svg class="star-svg" viewBox="-20 -20 140 140" aria-hidden="true" focusable="false"><defs><linearGradient id="starGrad" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0" stop-color="#fff6b8"/><stop offset=".45" stop-color="#ffd63f"/><stop offset="1" stop-color="#ffab00"/></linearGradient><radialGradient id="starHalo"><stop offset="0" stop-color="#ffe27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffe27a" stop-opacity="0"/></radialGradient></defs><circle class="star-halo" cx="50" cy="50" r="62" fill="url(#starHalo)"/><g class="star-orbit"><circle cx="50" cy="50" r="54" fill="none" stroke="rgba(255,255,255,.28)" stroke-width=".7" stroke-dasharray="2 6"/><circle cx="50" cy="-4" r="2.2" fill="#fff"/><circle cx="104" cy="50" r="1.5" fill="#ffe27a"/></g><path class="star-main" d="M50 2C54 30 70 46 98 50C70 54 54 70 50 98C46 70 30 54 2 50C30 46 46 30 50 2Z" fill="url(#starGrad)" stroke="#fff3b0" stroke-width="1.2" stroke-linejoin="round"/><path class="star-shine" d="M50 18C52 38 62 48 82 50C62 52 52 62 50 82C48 62 38 52 18 50C38 48 48 38 50 18Z" fill="#fff" opacity=".35"/><path class="star-spark s1" d="M92 12l2.2 5.8 5.8 2.2-5.8 2.2-2.2 5.8-2.2-5.8-5.8-2.2 5.8-2.2z" fill="#fff"/><path class="star-spark s2" d="M8 84l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#ffe27a"/><path class="star-spark s3" d="M12 14l1.2 3.2 3.2 1.2-3.2 1.2-1.2 3.2-1.2-3.2-3.2-1.2 3.2-1.2z" fill="#fff"/></svg></div></div>
+    <h2 class="main-prize-name" id="stagePrizeName">Seu próximo grande momento.</h2>
+    <p class="main-prize-sub" id="stagePrizeSub">Cadastre os participantes e os prêmios para começar.</p>
+    <div class="draw-pill" id="drawProgress"><span>✦</span><span>PREPARE A EMOÇÃO</span><span>✦</span></div>
+   </div>
+   <div class="stage-bottom"><div class="draw-instruction" id="drawInstruction"><span class="instruction-asterisk">✳</span><span>JUSTO. ALEATÓRIO. INESQUECÍVEL.</span></div><div class="stage-bottom-number">SORTALIA / 2026</div></div>
+  </div>
+  <div class="stage-actions">
+   <button type="button" class="draw-button" id="drawBtn" disabled><span class="btn-spark">✦</span><span id="drawBtnText">COMEÇAR SORTEIO</span><span class="button-arrow">↗</span></button>
+   <button type="button" class="history-button" id="historyBtn"><span class="history-symbol">◷</span> Histórico <span class="history-amount" id="historyCount">0</span></button>
+   <button type="button" class="certificate-button" id="certificateBtn" title="Exportar comprovante em PDF">↓ <span>Comprovante PDF</span></button>
+  </div>
+ </section>
+
+ <aside class="sidebar right-panel" aria-label="Prêmios">
+  <div class="panel-heading"><div class="panel-title"><div class="square-icon gold-ic">✦</div><div><p>O QUE ESTÁ EM JOGO</p><h2>Prêmios</h2></div></div><span class="panel-count" id="prizesCount">00</span></div>
+  <div class="panel-lead">Prêmios incríveis merecem um grande anúncio.</div>
+  <button type="button" class="primary-add yellow-add" id="addPrizeBtn"><span class="plus-disc">+</span><span>Adicionar prêmio</span><span aria-hidden="true">↗</span></button>
+  <button type="button" class="soft-action" id="importPrizesBtn"><span class="upload-symbol">⇧</span><span>Importar prêmios</span><small>XLSX · CSV · TXT</small></button>
+  <div class="list-topline"><span>DISPONÍVEIS</span><button type="button" id="managePrizesBtn" class="text-link">Gerenciar →</button></div>
+  <div class="prize-list" id="prizeList"><div class="empty-mini">Os prêmios aparecem aqui.</div></div>
+  <div class="panel-bottom"><span class="mini-orb yellow-orb">★</span><span id="prizeFooter">0 sorteios disponíveis</span></div>
+ </aside>
+</main>
+
+<footer class="site-footer"><span>FEITO PARA MOMENTOS QUE MERECEM SER LEMBRADOS <span class="footer-star">✳</span></span><div class="footer-right"><button type="button" id="demoBtn">Carregar demonstração</button><span>•</span><button type="button" id="exportBaseBtn">Backup da base</button><span>•</span><button type="button" id="restoreBtn">Restaurar base</button><span>•</span><button type="button" id="resetBtn">Limpar tudo</button></div></footer>
+</div>
+
+<div id="countdownOverlay" class="countdown-overlay" hidden aria-live="assertive" role="status"><div class="countdown-visual"><div class="count-ring ring-outer"></div><div class="count-ring ring-inner"></div><div class="count-center"><div class="count-brow">ESTÁ CHEGANDO A HORA</div><div class="count-digit" id="countDigit">3</div><div class="count-footer">PREPARE-SE PARA O GRANDE MOMENTO</div></div></div><div class="count-bottom-brand">SORTALIA <span>✦</span> A SORTE ESTÁ LANÇADA</div></div>
+<div id="rollingOverlay" class="rolling-overlay" hidden role="status" aria-live="off"><div class="rolling-glow"></div><div class="rolling-content"><span class="rolling-eyebrow">SELECIONANDO UM VENCEDOR</span><div class="rolling-abstract"><span></span><span></span><span></span><span></span><span></span></div><p>O resultado está chegando<span class="ellipsis"></span></p></div></div>
+<div id="winnerOverlay" class="winner-overlay" hidden aria-modal="true" role="dialog" aria-labelledby="winnerName"><canvas id="confettiCanvas" aria-hidden="true"></canvas><button type="button" id="closeWinnerBtn" class="winner-close" aria-label="Fechar anúncio">✕</button><div class="winner-content"><div class="winner-icon" aria-hidden="true"><svg class="star-svg" viewBox="-20 -20 140 140" aria-hidden="true" focusable="false"><defs><linearGradient id="starGradW" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0" stop-color="#fff6b8"/><stop offset=".45" stop-color="#ffd63f"/><stop offset="1" stop-color="#ffab00"/></linearGradient><radialGradient id="starHaloW"><stop offset="0" stop-color="#ffe27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffe27a" stop-opacity="0"/></radialGradient></defs><circle class="star-halo" cx="50" cy="50" r="62" fill="url(#starHaloW)"/><g class="star-orbit"><circle cx="50" cy="50" r="54" fill="none" stroke="rgba(255,255,255,.28)" stroke-width=".7" stroke-dasharray="2 6"/><circle cx="50" cy="-4" r="2.2" fill="#fff"/><circle cx="104" cy="50" r="1.5" fill="#ffe27a"/></g><path class="star-main" d="M50 2C54 30 70 46 98 50C70 54 54 70 50 98C46 70 30 54 2 50C30 46 46 30 50 2Z" fill="url(#starGradW)" stroke="#fff3b0" stroke-width="1.2" stroke-linejoin="round"/><path class="star-shine" d="M50 18C52 38 62 48 82 50C62 52 52 62 50 82C48 62 38 52 18 50C38 48 48 38 50 18Z" fill="#fff" opacity=".35"/><path class="star-spark s1" d="M92 12l2.2 5.8 5.8 2.2-5.8 2.2-2.2 5.8-2.2-5.8-5.8-2.2 5.8-2.2z" fill="#fff"/><path class="star-spark s2" d="M8 84l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#ffe27a"/><path class="star-spark s3" d="M12 14l1.2 3.2 3.2 1.2-3.2 1.2-1.2 3.2-1.2-3.2-3.2-1.2 3.2-1.2z" fill="#fff"/></svg></div><div class="winner-kicker">TEMOS UM GRANDE VENCEDOR!</div><h2 id="winnerName"></h2><div class="winner-prize-label">VOCÊ ACABA DE GANHAR</div><div class="winner-prize" id="winnerPrize"></div><p id="winnerSubtitle">PARABÉNS POR ESSE MOMENTO!</p><div class="winner-actions"><button type="button" class="winner-next" id="winnerNextBtn">CONTINUAR <span>↗</span></button><button type="button" class="winner-review" id="winnerHistoryBtn">VER RESULTADOS</button><button type="button" class="winner-review" id="winnerPDFBtn">↓ COMPROVANTE PDF</button></div></div><div class="winner-bottom">SORTEIO TRANSPARENTE <span>✦</span> MOMENTOS INESQUECÍVEIS</div></div>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><span id="modalKicker" class="modal-kicker">GERENCIAMENTO</span><h2 id="modalTitle">Gerenciar</h2></div><button type="button" class="modal-close" id="modalClose" aria-label="Fechar">✕</button></div><div id="modalBody"></div><div class="modal-foot" id="modalFooter"></div></div></div>
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+<input type="file" id="modelFile" accept=".xlsx" hidden><input type="file" id="participantFile" accept=".xlsx,.csv,.tsv,.txt" hidden><input type="file" id="prizeFile" accept=".xlsx,.csv,.tsv,.txt" hidden><input type="file" id="restoreFile" accept=".json" hidden>
+<script src="js/jszip.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
